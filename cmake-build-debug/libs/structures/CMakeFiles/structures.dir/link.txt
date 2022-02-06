@@ -1,2 +1,0 @@
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc libstructures.a CMakeFiles/structures.dir/laba_4e/4e.c.obj CMakeFiles/structures.dir/laba_5a/bitset/bitset.c.obj CMakeFiles/structures.dir/laba_5a/unordered_array_set/unordered_array_set.c.obj CMakeFiles/structures.dir/laba_5a/ordered_array_set/ordered_array_set.c.obj CMakeFiles/structures.dir/laba_5a/unordered_array_set/test.c.obj
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe libstructures.a
