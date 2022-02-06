@@ -1,6 +1,10 @@
-#ifndef GITROJECTS_VECTOR_H
-#define GITROJECTS_VECTOR_H
+#ifndef INC_VECTOR_H
+#define INC_VECTOR_H
 
+#include <stdio.h>
+#include <malloc.h>
+#include <stdint.h>
+#include <stdlib.h>
 
 typedef struct vector {
     int *data; // указатель на элементы вектора
@@ -8,4 +12,9 @@ typedef struct vector {
     size_t capacity; // вместимость вектора
 } vector;
 
-#endif //GITROJECTS_VECTOR_H
+vector createVector( const size_t n);
+
+void reserve(vector *v, const size_t newCapacity);
+
+
+#endif
