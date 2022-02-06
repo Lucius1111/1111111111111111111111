@@ -58,3 +58,11 @@ void pushBack(vector *v, const int x) {
     v->data[v->size] = x;
     v->size++;
 }
+
+void popBack(vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "bad alloc ");
+        exit(1);
+    } else
+        v->size--;
+}
