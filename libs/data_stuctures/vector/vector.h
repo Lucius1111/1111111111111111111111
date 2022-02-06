@@ -16,5 +16,11 @@ vector createVector( const size_t n);
 
 void reserve(vector *v, const size_t newCapacity);
 
+void clear(vector *v);
+
+void shrinkToFit(vector *v);
+
+void deleteVector(vector *v);
+
 
 #endif

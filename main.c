@@ -3,7 +3,7 @@
 int main() {
     int n;
     vector v = createVector(5);
-    reserve(&v,7);
+    reserve(&v,SIZE_MAX);
 
     return 0;
 

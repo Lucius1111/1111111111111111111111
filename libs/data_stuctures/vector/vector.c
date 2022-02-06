@@ -24,3 +24,15 @@ void reserve(vector *v, const size_t newCapacity) {
         v->size = newCapacity < v->size ? newCapacity : v->size;
     }
 }
+
+void clear(vector *v) {
+    v->size = 0;
+}
+
+void shrinkToFit(vector *v) {
+    reserve(v, v->size);
+}
+
+void deleteVector(vector *v) {
+    free(v->data);
+}
