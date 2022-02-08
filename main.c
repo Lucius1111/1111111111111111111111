@@ -79,21 +79,26 @@ void test() {
 
 int main() {
 
+    int n;
+    scanf("%d", &n);
+    vectorVoid v = createVectorV(n, sizeof(int));
+    assert(v.size == 0);
+    assert(v.capacity == 3);
+    assert(v.baseTypeSize == sizeof(int));
 
-    size_t n;
-    scanf("%zd", &n);
-    vectorVoid v = createVectorV(0, sizeof(float));
-    for (int i = 0; i < n; i++) {
-        float x;
-        scanf("%f", &x);
-        pushBackV(&v, &x);
-    }
-    for (int i = 0; i < n; i++) {
-        float x;
-        getVectorValueV(&v, i, &x);
+    pushBackV(&v, &n);
+    assert(v.capacity == 3);
+    assert(v.size == 1);
 
-        printf("%f ", x);
-    }
+    int nNew;
+    getVectorValueV(&v, v.size - 1, &nNew);
+    assert(nNew == n);
+
+    shrinkToFitV(&v);
+    assert(v.capacity == 1);
+
+    clearV(&v);
+    assert (v.size == 0);
 
     test();
 
