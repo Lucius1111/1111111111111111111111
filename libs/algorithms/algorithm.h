@@ -1,8 +1,9 @@
-//
-// Created by Пользователь on 06.02.2022.
-//
+#ifndef INC_ALGORITHM_H
+#define INC_ALGORITHM_H
 
-#ifndef GITPROJECT_ALGORITHM_H
-#define GITPROJECT_ALGORITHM_H
+#include <stdio.h>
 
-#endif //GITPROJECT_ALGORITHM_H
+void swap(void *a, void *b, size_t size) ;
+
+
+#endif
