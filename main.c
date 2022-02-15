@@ -1,21 +1,29 @@
 #include "libs/data_stuctures/matrix/matrix.h"
 #include "libs/algorithms/algorithm.h"
 
-matrix mulMatrices(matrix m1, matrix m2) {
-    assert(m1.nCols = m2.nRows);
-    matrix m = getMemMatrix(m1.nRows, m2.nCols);
-    for (int i = 0; i < m1.nRows; i++)
-        for (int j = 0; j < m2.nCols; j++) {
-            m.values[i][j] = 0;
-            for (int k = 0; k < m2.nRows; k++)
-                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
-        }
-    return (matrix) m;
+long long getSum(const int *a, size_t n) {
+    long long sum = 0;
+    for (size_t i = 0; i < n; i++)
+        sum += a[i];
+    return sum;
 }
 
-void getSquareOfMatrixIfSymmetric(matrix *m) {
-    if (isSymmetricMatrix(*m))
-        *m = mulMatrices(*m, *m);
+bool isUnique(const long long *a, size_t n) {
+    for (size_t i = 0; i < n - 1; i++) {
+        long long potentialSum = a[i];
+        for (size_t j = i + 1; j < n; j++)
+            if (a[j] == potentialSum)
+                return false;
+    }
+    return true;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long mSum[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++)
+        mSum[i] = getSum(m.values[i], m.nCols);
+    if (isUnique(mSum, m.nRows))
+        transposeSquareMatrix(m);
 }
 
 int main() {
@@ -23,9 +31,7 @@ int main() {
     scanf("%zu %zu", &a, &b);
     matrix m = getMemMatrix(a, b);
     inputMatrix(m);
-
-    getSquareOfMatrixIfSymmetric(&m);
-
+    transposeIfMatrixHasNotEqualSumOfRows(m);
     outputMatrix(m);
 
     return 0;

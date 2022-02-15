@@ -151,7 +151,7 @@ void transposeSquareMatrix(matrix m) {
         exit(3);
     }
     for (size_t i = 0; i < m.nRows; i++)
-        for (size_t j = 0; j < m.nCols; j++)
+        for (size_t j = i; j < m.nCols; j++)
             swap(&m.values[i][j], &m.values[j][i], sizeof(int));
 }
 
