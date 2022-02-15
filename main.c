@@ -1,20 +1,18 @@
 #include "libs/data_stuctures/matrix/matrix.h"
 #include "libs/algorithms/algorithm.h"
 
-int getMax(const int *a, int n) {
-    size_t maxIndex;
-    int max = a[0];
+int getMin(const int *a, int n) {
+    int min = a[0];
     for (size_t i = 1; i < n; i++) {
-        if (a[i] > max) {
-            maxIndex = i;
-            max = a[i];
+        if (a[i] < min) {
+            min = a[i];
         }
     }
-    return max;
+    return min;
 }
 
-void sortRowsByMaxElement(matrix m) {
-    insertionSortRowsMatrixByRowCriteria(m, getMax);
+void sortColsByMinElement(matrix m) {
+    insertionSortColsMatrixByColCriteria(m, getMin);
 }
 
 int main() {
@@ -22,9 +20,7 @@ int main() {
     scanf("%zu %zu", &a, &b);
     matrix m = getMemMatrix(a, b);
     inputMatrix(m);
-
-    sortRowsByMaxElement(m);
-
+    sortColsByMinElement(m);
     outputMatrix(m);
 
     return 0;

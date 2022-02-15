@@ -71,7 +71,7 @@ void swapRows(matrix m, size_t i1, size_t i2) {
 void swapColumns(matrix m, size_t j1, size_t j2) {
     isRightIndex(m.nCols, j1);
     isRightIndex(m.nCols, j2);
-    for (size_t i = 0; i < m.nCols; i++)
+    for (size_t i = 0; i < m.nRows; i++)
         swap(&m.values[i][j1], &m.values[i][j2], sizeof(int));
 }
 
@@ -96,11 +96,12 @@ void insertionSortColsMatrixByColCriteria(matrix m,
     int mCriteria[m.nCols];
     for (size_t i = 0; i < m.nCols; i++) {
         int mElements[m.nRows];
+
         for (size_t j = 0; j < m.nRows; j++)
             mElements[j] = m.values[j][i];
         mCriteria[i] = criteria(mElements, m.nRows);
     }
-    for (size_t i = 1; i < m.nRows; i++) {
+    for (size_t i = 1; i < m.nCols; i++) {
         size_t j = i;
         while (j > 0 && mCriteria[j - 1] > mCriteria[j]) {
             swap(&mCriteria[j - 1], &mCriteria[j], sizeof(int));
