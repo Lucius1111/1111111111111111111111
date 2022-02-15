@@ -1,18 +1,21 @@
 #include "libs/data_stuctures/matrix/matrix.h"
 #include "libs/algorithms/algorithm.h"
 
-int getMin(const int *a, int n) {
-    int min = a[0];
-    for (size_t i = 1; i < n; i++) {
-        if (a[i] < min) {
-            min = a[i];
+matrix mulMatrices(matrix m1, matrix m2) {
+    assert(m1.nCols = m2.nRows);
+    matrix m = getMemMatrix(m1.nRows, m2.nCols);
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m2.nCols; j++) {
+            m.values[i][j] = 0;
+            for (int k = 0; k < m2.nRows; k++)
+                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
         }
-    }
-    return min;
+    return (matrix) m;
 }
 
-void sortColsByMinElement(matrix m) {
-    insertionSortColsMatrixByColCriteria(m, getMin);
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    if (isSymmetricMatrix(*m))
+        *m = mulMatrices(*m, *m);
 }
 
 int main() {
@@ -20,7 +23,9 @@ int main() {
     scanf("%zu %zu", &a, &b);
     matrix m = getMemMatrix(a, b);
     inputMatrix(m);
-    sortColsByMinElement(m);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
     outputMatrix(m);
 
     return 0;
