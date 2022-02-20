@@ -572,3 +572,33 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 
     return sum;
 }
+
+int findMin(matrix m, size_t left, size_t right, int row) {
+    int minimalValue = m.values[row][left];
+    for (size_t i = left + 1; i < right + 1; i++)
+        if (m.values[row][i] < minimalValue)
+            minimalValue = m.values[row][i];
+
+    return minimalValue;
+}
+
+int getMinInArea(matrix m) {
+    position min = getMaxValuePos(m);
+    size_t left = min.colIndex;
+    size_t right = min.colIndex;
+    int row = min.rowIndex;
+    int minimum = findMin(m, left, right, row);
+    left = left == 0 ? 0 : left - 1;
+    right = right == m.nCols - 1 ? right : (right + 1);
+    row--;
+
+    while (row >= 0) {
+        int newMin = findMin(m, left, right, row);
+        minimum = minimum > newMin ? newMin : minimum;
+        left = left == 0 ? 0 : left - 1;
+        right = right == m.nCols - 1 ? right : (right + 1);
+        row--;
+    }
+
+    return minimum;
+}

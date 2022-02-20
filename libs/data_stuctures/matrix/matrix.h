@@ -70,4 +70,9 @@ int max(int a, int b);
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 int findMaximumOfPseudoDiagonal(matrix m, size_t i, size_t j);
+
+int getMinInArea(matrix m);
+
+int findMin(matrix m, size_t left, size_t right, int row);
+
 #endif
