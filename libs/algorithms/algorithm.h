@@ -5,5 +5,6 @@
 
 void swap(void *a, void *b, size_t size) ;
 
+long long getSum(const int *a, size_t n);
 
 #endif

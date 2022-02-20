@@ -7,15 +7,17 @@
 #include <assert.h>
 
 typedef struct matrix {
-     int ** values ; // элементы матрицы
-    size_t nRows ; // количество рядов
-    size_t nCols ; // количество столбцов
-     } matrix ;
+    int **values; // элементы матрицы
+    size_t nRows; // количество рядов
+    size_t nCols; // количество столбцов
+} matrix;
 
- typedef struct position {
-     size_t rowIndex ;
-     size_t colIndex ;
-     } position ;
+typedef struct position {
+    size_t rowIndex;
+    size_t colIndex;
+} position;
+
+void test();
 
 matrix getMemMatrix(size_t nRows, size_t nCols);
 
@@ -38,9 +40,11 @@ void swapRows(matrix m, size_t i1, size_t i2);
 void swapColumns(matrix m, size_t j1, size_t j2);
 
 void insertionSortRowsMatrixByRowCriteria(matrix m,
-                                          int (*criteria)(int*, size_t)) ;
+                                          int (*criteria)(int *, size_t));
+
 void insertionSortColsMatrixByColCriteria(matrix m,
-                                          int (*criteria)(int*, size_t));
+                                          int (*criteria)(int *, size_t));
+
 bool isSquareMatrix(matrix m);
 
 bool areTwoMatricesEqual(matrix m1, matrix m2);
@@ -58,9 +62,12 @@ position getMaxValuePos(matrix m);
 matrix createMatrixFromArray(const int *a, size_t nRows,
                              size_t nCols);
 
-matrix *createArrayOfMatrixFromArray(const int *values,
-                                     size_t nMatrices,
-                                     size_t nRows,
-                                     size_t nCols);
+matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices,
+                                     size_t nRows, size_t nCols);
 
+int max(int a, int b);
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
+
+int findMaximumOfPseudoDiagonal(matrix m, size_t i, size_t j);
 #endif
