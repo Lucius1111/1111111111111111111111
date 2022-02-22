@@ -632,7 +632,7 @@ void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
-int cmp_long_long(const void *pa, const void *pb){
+int cmp_long_long(const void *pa, const void *pb) {
     long long arg1 = *(const long long *) pa;
     long long arg2 = *(const long long *) pb;
     if (arg1 < arg2) return -1;
@@ -652,15 +652,11 @@ int countNUnique(long long *a, int n) {
 }
 
 int countEqClassesByRowsSum(matrix m) {
-    long long sumStockArray[m.nRows];
-    for (size_t i = 0; i < m.nRows; i++) {
-        long long sumStock = 0;
-        for (size_t j = 0; j < m.nCols; j++)
-            sumStock += m.values[i][j];
-        sumStockArray[i] = sumStock;
-    }
+    long long sumRows[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++)
+        sumRows[i] = getSum(m.values[i], m.nCols);
 
-    return countNUnique(sumStockArray, m.nRows);
+    return countNUnique(sumRows, m.nRows);
 }
 
 

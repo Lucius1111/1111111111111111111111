@@ -83,4 +83,8 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m,
 
 void sortByDistances(matrix m);
 
+int countEqClassesByRowsSum(matrix m);
+
+size_t getNSpecialElement(matrix m);
+
 #endif
