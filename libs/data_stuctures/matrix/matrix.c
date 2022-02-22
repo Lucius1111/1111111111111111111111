@@ -725,6 +725,7 @@ bool hasAllNonDescendingRows(matrix m) {
     for (size_t i = 0; i < m.nRows; i++)
         if (isNonDescendingSorted(m.values[i], m.nCols) == false)
             return false;
+
     return true;
 }
 
@@ -735,4 +736,38 @@ int countNonDescendingRowsMatrices(matrix *ms, size_t nMatrices) {
             countNonDescendingRowsMatrices++;
 
     return countNonDescendingRowsMatrices;
+}
+
+int countValues(const int *a, size_t n, int value) {
+    int count = 0;
+    for (size_t i = 0; i < n; i++)
+        if (a[i] == value)
+            count++;
+
+    return count;
+}
+
+int countZeroRows(matrix m) {
+    int countZeroRows = 0;
+    for (size_t i = 0; i < m.nRows; i++)
+        if (countValues(m.values[i], m.nCols, 0) == m.nCols)
+            countZeroRows++;
+
+    return countZeroRows;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, size_t nMatrix) {
+    int a[nMatrix];
+    size_t maxCountZeroRows = 0;
+    for (size_t i = 0; i < nMatrix; i++) {
+        a[i] = countZeroRows(ms[i]);
+        maxCountZeroRows = a[i] > maxCountZeroRows ?
+                           a[i] : maxCountZeroRows;
+    }
+    for (size_t i = 0; i < nMatrix; i++) {
+        if (a[i] == maxCountZeroRows) {
+            outputMatrix(ms[i]);
+            printf("\n");
+        }
+    }
 }

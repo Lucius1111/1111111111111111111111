@@ -95,4 +95,6 @@ bool hasAllNonDescendingRows(matrix m);
 
 int countNonDescendingRowsMatrices(matrix *ms, size_t nMatrices);
 
+void printMatrixWithMaxZeroRows(matrix *ms, size_t nMatrix);
+
 #endif

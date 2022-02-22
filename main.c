@@ -5,24 +5,32 @@ int main() {
 
     test();
 
-    size_t nMatrices = 4;
+    size_t nMatrices = 5;
     matrix *ms = createArrayOfMatrixFromArray(
             (int[]) {
-                    7, 1,
+                    0, 1,
+                    1, 0,
+                    0, 0,
+
+                    1, 1,
+                    2, 1,
                     1, 1,
 
-                    1, 6,
-                    2, 2,
+                    0, 0,
+                    0, 0,
+                    4, 7,
 
-                    5, 4,
-                    2, 3,
+                    0, 0,
+                    0, 1,
+                    0, 0,
 
-                    1, 3,
-                    7, 9,
+                    0, 1,
+                    0, 2,
+                    0, 3,
             },
-            nMatrices, 2, 2);
+            nMatrices, 3, 2);
 
-    assert(countNonDescendingRowsMatrices(ms, nMatrices) == 2);
+    printMatrixWithMaxZeroRows(ms, nMatrices);
 
     return 0;
 }
