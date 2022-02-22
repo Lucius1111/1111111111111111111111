@@ -7,16 +7,22 @@ int main() {
 
     matrix m = createMatrixFromArray(
             (int[]) {
-                    7, 1,
-                    2, 7,
-                    5, 4,
-                    4, 3,
-                    1, 6,
-                    8, 0,
-            }, 6, 2
+                    1, 2, 3,
+                    4, 5, 6,
+                    7, 8, 1,
+            }, 3, 3
     );
 
-    assert(countEqClassesByRowsSum(m) == 3);
+    matrix n = createMatrixFromArray(
+            (int[]) {
+                    1, 2, 3,
+                    1, 4, 7,
+                    7, 8, 1,
+            }, 3, 3
+    );
+
+    swapPenultimateRow(m);
+    assert(areTwoMatricesEqual(m, n));
 
     return 0;
 }

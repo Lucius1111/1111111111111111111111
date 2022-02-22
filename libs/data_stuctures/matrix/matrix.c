@@ -688,4 +688,30 @@ size_t getNSpecialElement(matrix m) {
     return countSpecial;
 }
 
+position getLeftMin(matrix m) {
+    position minPos = {0, 0};
+
+    for (size_t i = 0; i > m.nCols; i--)
+        for (size_t j = 0; j < m.nRows; j++)
+            if (m.values[j][i] < m.values[minPos.rowIndex][minPos.colIndex]) {
+                minPos.rowIndex = j;
+                minPos.colIndex = i;
+            }
+
+    return minPos;
+}
+
+void swapPenultimateRow(matrix m) {
+    position minPos = getLeftMin(m);
+
+    matrix n = getMemMatrix(m.nRows, m.nCols);
+    for (size_t i = 0; i < m.nRows; i++)
+        for (size_t j = 0; j < m.nCols; j++)
+            n.values[i][j] = m.values[i][j];
+
+    size_t penultimateRow = m.nRows - 2 >= 0 ? m.nRows - 2 : m.nRows - 1;
+    for (size_t i = 0; i < m.nCols; i++)
+        m.values[penultimateRow][i] = n.values[i][minPos.colIndex];
+}
+
 

@@ -87,4 +87,10 @@ int countEqClassesByRowsSum(matrix m);
 
 size_t getNSpecialElement(matrix m);
 
+position getLeftMin(matrix m);
+
+void swapPenultimateRow(matrix m);
+
+position getLeftMin(matrix m);
+
 #endif
