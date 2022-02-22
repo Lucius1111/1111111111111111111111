@@ -771,3 +771,30 @@ void printMatrixWithMaxZeroRows(matrix *ms, size_t nMatrix) {
         }
     }
 }
+
+int getNormOfMatrix(matrix m) {
+    int norm = abs(m.values[0][0]);
+    for (size_t i = 0; i < m.nRows; i++)
+        for (size_t j = 0; j < m.nCols; j++)
+            norm = abs(m.values[i][j]) > norm ?
+                   abs(m.values[i][j]) : norm;
+
+    return norm;
+}
+
+void printMatrixWithMinNorm(matrix *ms, size_t nMatrix) {
+    int a[nMatrix];
+    int minNorm = a[0];
+    for (size_t i = 1; i < nMatrix; i++) {
+        a[i] = getNormOfMatrix(ms[i]);
+        minNorm = a[i] < minNorm ?
+                  a[i] : minNorm;
+
+    }
+    for (size_t i = 0; i < nMatrix; i++) {
+        if (a[i] == minNorm) {
+            outputMatrix(ms[i]);
+            printf("\n");
+        }
+    }
+}

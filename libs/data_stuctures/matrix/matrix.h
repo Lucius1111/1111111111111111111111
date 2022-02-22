@@ -97,4 +97,6 @@ int countNonDescendingRowsMatrices(matrix *ms, size_t nMatrices);
 
 void printMatrixWithMaxZeroRows(matrix *ms, size_t nMatrix);
 
+void printMatrixWithMinNorm(matrix *ms, size_t nMatrix);
+
 #endif
