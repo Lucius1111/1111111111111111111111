@@ -602,3 +602,33 @@ int getMinInArea(matrix m) {
 
     return minimum;
 }
+
+float getDistance(int *a, int n) {
+    float sumSqrt = 0;
+    for (size_t i = 0; i < n; i++)
+        sumSqrt += powf(a[i], 2.0f);
+
+    return sqrtf(sumSqrt);
+
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m,
+                                           float (*criteria)(int *, int)) {
+    float mCriteria[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++)
+        mCriteria[i] = criteria(m.values[i], m.nCols);
+
+    for (size_t i = 1; i < m.nRows; i++) {
+        size_t j = i;
+        while (j > 0 && mCriteria[j - 1] > mCriteria[j]) {
+            swap(&mCriteria[j - 1], &mCriteria[j], sizeof(int));
+            swapRows(m, j, j - 1);
+            j--;
+        }
+    }
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+

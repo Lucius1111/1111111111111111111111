@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <math.h>
 
 typedef struct matrix {
     int **values; // элементы матрицы
@@ -74,5 +75,12 @@ int findMaximumOfPseudoDiagonal(matrix m, size_t i, size_t j);
 int getMinInArea(matrix m);
 
 int findMin(matrix m, size_t left, size_t right, int row);
+
+float getDistance(int *a, int n);
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m,
+                                           float (*criteria)(int *, int));
+
+void sortByDistances(matrix m);
 
 #endif

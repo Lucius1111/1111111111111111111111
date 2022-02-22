@@ -6,27 +6,29 @@ int main() {
 
     test();
 
-    matrix m1 = createMatrixFromArray(
+    matrix m = createMatrixFromArray(
             (int[]) {
-                    10, 7, 5, 6,
-                    3, 11, 8, 9,
-                    4, 1, 12, 2
-            }, 3, 4
+                    1, 2, 3,
+                    1, 0, 1,
+                    0, 0, 1,
+                    0, 0, 0,
+                    1, 1, 1,
+            }, 5, 3
     );
 
-    matrix m2 = createMatrixFromArray(
+    matrix n = createMatrixFromArray(
             (int[]) {
-                    6, 8, 9, 2,
-                    7, 12, 3, 4,
-                    10, 11, 5, 1
-            }, 3, 4
+                    0, 0, 0,
+                    0, 0, 1,
+                    1, 0, 1,
+                    1, 1, 1,
+                    1, 2, 3,
+            }, 5, 3
     );
 
-    assert(getMinInArea(m1) == 5);
-    assert(getMinInArea(m2) == 6);
+    sortByDistances(m);
 
-    freeMemMatrix(m1);
-    freeMemMatrix(m2);
+    assert(areTwoMatricesEqual(m, n));
 
     return 0;
 }
