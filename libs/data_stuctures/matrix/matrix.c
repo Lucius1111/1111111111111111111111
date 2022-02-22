@@ -632,3 +632,64 @@ void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
+int cmp_long_long(const void *pa, const void *pb){
+    long long arg1 = *(const long long *) pa;
+    long long arg2 = *(const long long *) pb;
+    if (arg1 < arg2) return -1;
+    if (arg1 > arg2) return 1;
+    return 0;
+}
+
+int countNUnique(long long *a, int n) {
+    qsort(a, n, sizeof(long long), cmp_long_long);
+
+    int countUnique = 1;
+    for (size_t i = 0; i < n - 1; i++)
+        if (a[i] != a[i + 1])
+            countUnique++;
+
+    return countUnique;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long sumStockArray[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++) {
+        long long sumStock = 0;
+        for (size_t j = 0; j < m.nCols; j++)
+            sumStock += m.values[i][j];
+        sumStockArray[i] = sumStock;
+    }
+
+    return countNUnique(sumStockArray, m.nRows);
+}
+
+
+int getMaxOfCol(matrix m, size_t numOfCol) {
+    int max = m.values[0][numOfCol];
+    for (size_t i = 1; i < m.nRows; i++)
+        max = max < m.values[i][numOfCol] ?
+              m.values[i][numOfCol] : max;
+
+    return max;
+}
+
+int SumOfCol(matrix m, size_t numOfCol) {
+    int sum = 0;
+    for (size_t i = 0; i < m.nRows; i++)
+        sum += m.values[i][numOfCol];
+
+    return sum;
+}
+
+size_t getNSpecialElement(matrix m) {
+    size_t countSpecial = 0;
+    for (size_t i = 0; i < m.nCols; i++) {
+        int max = getMaxOfCol(m, i);
+        if (max > SumOfCol(m, i) - max)
+            countSpecial++;
+    }
+
+    return countSpecial;
+}
+
+
