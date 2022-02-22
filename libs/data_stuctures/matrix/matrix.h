@@ -91,6 +91,8 @@ position getLeftMin(matrix m);
 
 void swapPenultimateRow(matrix m);
 
-position getLeftMin(matrix m);
+bool hasAllNonDescendingRows(matrix m);
+
+int countNonDescendingRowsMatrices(matrix *ms, size_t nMatrices);
 
 #endif

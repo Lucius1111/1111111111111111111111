@@ -5,24 +5,24 @@ int main() {
 
     test();
 
-    matrix m = createMatrixFromArray(
+    size_t nMatrices = 4;
+    matrix *ms = createArrayOfMatrixFromArray(
             (int[]) {
-                    1, 2, 3,
-                    4, 5, 6,
-                    7, 8, 1,
-            }, 3, 3
-    );
+                    7, 1,
+                    1, 1,
 
-    matrix n = createMatrixFromArray(
-            (int[]) {
-                    1, 2, 3,
-                    1, 4, 7,
-                    7, 8, 1,
-            }, 3, 3
-    );
+                    1, 6,
+                    2, 2,
 
-    swapPenultimateRow(m);
-    assert(areTwoMatricesEqual(m, n));
+                    5, 4,
+                    2, 3,
+
+                    1, 3,
+                    7, 9,
+            },
+            nMatrices, 2, 2);
+
+    assert(countNonDescendingRowsMatrices(ms, nMatrices) == 2);
 
     return 0;
 }
