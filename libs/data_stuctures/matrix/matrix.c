@@ -320,6 +320,19 @@ void test_getMinValuePos() {
     freeMemMatrix(m);
 }
 
+void test_getMaxValuePos() {
+    matrix m = createMatrixFromArray(
+            (int[]) {
+                    4, 2, 3,
+                    5, 6, 9,
+                    1, 7, 8,
+            }, 3, 3
+    );
+    assert(getMaxValuePos(m).rowIndex == 1 && getMaxValuePos(m).colIndex == 2);
+
+    freeMemMatrix(m);
+}
+
 void test() {
     test_swapRows();
     test_swapColumns();
@@ -338,6 +351,7 @@ void test() {
     test_isSymmetricMatrix_isNonSymmetric_isNonSquare();
     test_transposeSquareMatrix();
     test_getMinValuePos();
+    test_getMaxValuePos();
 }
 //testingEnd//
 
@@ -550,6 +564,44 @@ int max(int a, int b) {
     return a > b ? a : b;
 }
 
+void sortRowsByMaxElement(matrix m) {
+    insertionSortRowsMatrixByRowCriteria(m, getMax);
+}
+
+void sortColsByMinElement(matrix m) {
+    insertionSortColsMatrixByColCriteria(m, getMin);
+}
+
+matrix mulMatrices(matrix m1, matrix m2) {
+    assert(m1.nCols = m2.nRows);
+    matrix m = getMemMatrix(m1.nRows, m2.nCols);
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m2.nCols; j++) {
+            m.values[i][j] = 0;
+            for (int k = 0; k < m2.nRows; k++)
+                m.values[i][j] += m1.values[i][k] * m2.values[k][j];
+        }
+    return (matrix) m;
+}
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    if (isSymmetricMatrix(*m))
+        *m = mulMatrices(*m, *m);
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
+    long long mSum[m.nRows];
+    for (size_t i = 0; i < m.nRows; i++)
+        mSum[i] = getSum(m.values[i], m.nCols);
+    if (isUnique(mSum, m.nRows))
+        transposeSquareMatrix(m);
+}
+
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    matrix m3 = mulMatrices(m1, m2);
+    return isEMatrix(m3);
+}
+
 int findMaximumOfPseudoDiagonal(matrix m, size_t i, size_t j) {
     int maximum = m.values[i][j];
     while (i + 1 < m.nRows && j + 1 < m.nCols) {
@@ -691,7 +743,7 @@ size_t getNSpecialElement(matrix m) {
 position getLeftMin(matrix m) {
     position minPos = {0, 0};
 
-    for (size_t i = 0; i > m.nCols; i--)
+    for (size_t i = 0; i < m.nCols; i++)
         for (size_t j = 0; j < m.nRows; j++)
             if (m.values[j][i] < m.values[minPos.rowIndex][minPos.colIndex]) {
                 minPos.rowIndex = j;
