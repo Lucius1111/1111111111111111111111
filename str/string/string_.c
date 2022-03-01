@@ -90,7 +90,7 @@ void assertString(const char *expected, char *got,
     if (strcmp_(expected, got)) {
         fprintf(stderr, " File %s\n", fileName);
         fprintf(stderr, "%s - failed on line %d\n", funcName, line);
-        fprintf(stderr, " Expected : \"%s \"\n", expected);
+        fprintf(stderr, " Expected : \"%s\"\n", expected);
         fprintf(stderr, "Got: \"%s\"\n\n", got);
     } else
         fprintf(stderr, "%s - OK\n", funcName);

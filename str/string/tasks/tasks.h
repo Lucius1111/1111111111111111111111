@@ -1,13 +1,14 @@
 #ifndef INC_TASKS_H
 #define INC_TASKS_H
 
-#include "../string_.h"
+#include "removeAdjacentEqualLetters.h"
+#include "removeNonLetters.h"
 
-char *getEndOfString(char *begin);
+void test_tasks(){
+    test_removeAdjacentEqualLetters();
+    test_removeNonLetters();
+}
 
-void removeNonLetters(char *s);
-
-///////////////////////////
 
 
 
