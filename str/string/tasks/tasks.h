@@ -3,10 +3,14 @@
 
 #include "removeAdjacentEqualLetters.h"
 #include "removeNonLetters.h"
+#include "digitToStartWithPreservingOrderForAll.h"
+
+
 
 void test_tasks(){
     test_removeAdjacentEqualLetters();
     test_removeNonLetters();
+    test_digitToStartWithPreservingOrderForAll();
 }
 
 

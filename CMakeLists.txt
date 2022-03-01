@@ -8,8 +8,10 @@ add_executable(GitProject main.c
         str/string/string_.h
         str/string/tasks/tasks.h
         str/string/tasks/removeNonLetters.h
-        str/string/tasks/removeAdjacentEqualLetters.h)
+        str/string/tasks/removeAdjacentEqualLetters.h
+        str/string/tasks/digitToStartWithPreservingOrderForAll.h)
 
 add_subdirectory(libs)
 target_link_libraries(GitProject data_stuctures)
 target_link_libraries(GitProject algorithms)
+
