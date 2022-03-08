@@ -8,6 +8,7 @@
 #include "transformsAllWordsW1ToW2.h"
 #include "isLexigraphicallyOrderedString.h"
 #include "printReverseWordsOneByOneToString.h"
+#include "countOfPalindromes.h"
 
 
 
@@ -20,6 +21,7 @@ void test_tasks(){
     test_transformsAllWordsW1toW2();
     test_isLexigraphicallyOrderedString();
     test_printReverseWordsOneByOneToString();
+    test_countOfPalindromes();
 }
 
 
