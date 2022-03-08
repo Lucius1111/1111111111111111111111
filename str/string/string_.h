@@ -13,8 +13,7 @@
 # define MAX_N_WORDS_IN_STRING 100
 # define MAX_WORD_SIZE 20
 
-
-char _stringBuffer[MAX_STRING_SIZE + 1];
+ char stringBuffer[MAX_STRING_SIZE + 1];
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, \
 __FILE__ , __FUNCTION__ , __LINE__ )
@@ -54,5 +53,6 @@ void assertString(const char *expected, char *got,
 
 int getWord(char *beginSearch, WordDescriptor *word);
 
+int areWordsEqual(WordDescriptor w1, WordDescriptor w2);
 
 #endif

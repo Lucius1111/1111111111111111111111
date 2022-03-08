@@ -16,18 +16,6 @@ void removeNonLetters(char *s) {
     *destination = '\0';
 }
 
-void test_removeNonLetters_hasSpaces() {
-    char s[] = "  v   k   ";
-    removeNonLetters(s);
-    ASSERT_STRING("vk", s);
-}
-
-void test_removeNonLetters_notHasSpaces() {
-    char s[] = "vk";
-    removeNonLetters(s);
-    ASSERT_STRING("vk", s);
-}
-
 void test_removeNonLetters_isEmptyString() {
     char s[] = "";
     removeNonLetters(s);
@@ -38,6 +26,18 @@ void test_removeNonLetters_hasOneSpace() {
     char s[] = " ";
     removeNonLetters(s);
     ASSERT_STRING("", s);
+}
+
+void test_removeNonLetters_notHasSpaces() {
+    char s[] = "vk";
+    removeNonLetters(s);
+    ASSERT_STRING("vk", s);
+}
+
+void test_removeNonLetters_hasSpaces() {
+    char s[] = "  v   k   ";
+    removeNonLetters(s);
+    ASSERT_STRING("vk", s);
 }
 
 void test_removeNonLetters() {

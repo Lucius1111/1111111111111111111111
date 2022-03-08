@@ -105,3 +105,13 @@ int getWord(char *beginSearch, WordDescriptor *word) {
 
     return 1;
 }
+
+int areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
+
+    while (w1.begin != w1.end - 1 && (*w1.begin == *w2.begin)) {
+        w1.begin++;
+        w2.begin++;
+    }
+
+    return *w1.begin - *w2.begin;
+}

@@ -5,19 +5,19 @@
 
 void digitToStart(WordDescriptor word) {
     char *endStringBuffer = copy(word.begin, word.end,
-                                 _stringBuffer);
+                                 stringBuffer);
     char *recPosition = copyIfReverse(endStringBuffer - 1,
-                                      _stringBuffer - 1,
+                                      stringBuffer - 1,
                                       word.begin, isdigit);
-    copyIf(_stringBuffer, endStringBuffer, recPosition, isalpha);
+    copyIf(stringBuffer, endStringBuffer, recPosition, isalpha);
 }
 
 void digitToStartWithPreservingOrder(WordDescriptor word) {
     char *endStringBuffer = copy(word.begin, word.end,
-                                 _stringBuffer);
-    char *recPosition = copyIf(_stringBuffer, endStringBuffer,
+                                 stringBuffer);
+    char *recPosition = copyIf(stringBuffer, endStringBuffer,
                                word.begin, isdigit);
-    copyIf(_stringBuffer, endStringBuffer, recPosition, isalpha);
+    copyIf(stringBuffer, endStringBuffer, recPosition, isalpha);
 }
 
 void digitToStartWithPreservingOrderForAll(char *beginString) {
