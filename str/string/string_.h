@@ -13,7 +13,7 @@
 # define MAX_N_WORDS_IN_STRING 100
 # define MAX_WORD_SIZE 20
 
- char stringBuffer[MAX_STRING_SIZE + 1];
+char stringBuffer[MAX_STRING_SIZE + 1];
 
 #define ASSERT_STRING(expected, got) assertString(expected, got, \
 __FILE__ , __FUNCTION__ , __LINE__ )
@@ -23,6 +23,12 @@ typedef struct WordDescriptor {
     char *end; // позиция первого символа, после последнего символа слова
 } WordDescriptor;
 
+typedef struct BagOfWords {
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+} BagOfWords;
+
+BagOfWords bag;
 
 size_t strlen_(const char *begin);
 
@@ -47,6 +53,10 @@ char *copyIf(char *beginSource, const char *endSource,
 char *copyIfReverse(char *rbeginSource, const char *rendSource,
                     char *beginDestination, int (*f)(int));
 
+
+char *copyReverse(char *rbeginSource, const char *rendSource,
+                  char *beginDestination);
+
 void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,
                   int line);
@@ -55,4 +65,5 @@ int getWord(char *beginSearch, WordDescriptor *word);
 
 int areWordsEqual(WordDescriptor w1, WordDescriptor w2);
 
+void getBagOfWords(BagOfWords *bag, char *s);
 #endif
