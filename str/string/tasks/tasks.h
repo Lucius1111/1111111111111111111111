@@ -15,6 +15,7 @@
 #include "getLastWordInFirstStringThatAvailableInTheSecondString.h"
 #include "hasEqualWords.h"
 #include "hasPairOfWordThatMadeOfTheSameLetters.h"
+#include "transformsToStringOfWordsOtherThanLastWord.h"
 
 void test_tasks() {
     test_removeAdjacentEqualLetters();
@@ -31,6 +32,7 @@ void test_tasks() {
     test_getLastWordInFirstStringThatAvailableInTheSecondString();
     test_hasEqualWords();
     test_hasPairOfWordThatMadeOfTheSameLetters();
+    test_transformsToStringOfWordsOtherThanLastWord();
 }
 
 
