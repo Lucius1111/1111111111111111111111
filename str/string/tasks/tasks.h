@@ -14,8 +14,9 @@
 #include "printWordBeforeFirstWordWithA.h"
 #include "getLastWordInFirstStringThatAvailableInTheSecondString.h"
 #include "hasEqualWords.h"
+#include "hasPairOfWordThatMadeOfTheSameLetters.h"
 
-void test_tasks(){
+void test_tasks() {
     test_removeAdjacentEqualLetters();
     test_removeNonLetters();
     test_digitToStartWithPreservingOrderForAll();
@@ -29,9 +30,8 @@ void test_tasks(){
     testAll_getWordBeforeFirstWordWithA();
     test_getLastWordInFirstStringThatAvailableInTheSecondString();
     test_hasEqualWords();
+    test_hasPairOfWordThatMadeOfTheSameLetters();
 }
-
-
 
 
 #endif
