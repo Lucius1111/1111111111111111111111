@@ -78,7 +78,6 @@ void test_transformsAllWordsW1toW2_hasDesiredAndOtherWordThatIncludeDesiredWord(
 }
 
 
-
 void test_transformsAllWordsW1toW2() {
     test_transformsAllWordsW1toW2_onlyOneDesiredWord();
     test_transformsAllWordsW1toW2_hasOnlyDesiredWords();
