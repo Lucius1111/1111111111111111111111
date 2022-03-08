@@ -12,6 +12,7 @@
 #include "getStringWithAlternatingWordsOfTwoStrings.h"
 #include "reversesWordOrder.h"
 #include "printWordBeforeFirstWordWithA.h"
+#include "getLastWordInFirstStringThatAvailableInTheSecondString.h"
 
 void test_tasks(){
     test_removeAdjacentEqualLetters();
@@ -25,6 +26,7 @@ void test_tasks(){
     test_getStringWithAlternatingWordsOfTwoStrings();
     test_reversesWordOrder();
     testAll_getWordBeforeFirstWordWithA();
+    test_getLastWordInFirstStringThatAvailableInTheSecondString();
 }
 
 

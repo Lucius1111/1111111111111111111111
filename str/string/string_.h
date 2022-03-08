@@ -36,6 +36,7 @@ typedef enum WordBeforeFirstWordWithAReturnCode {
 } WordBeforeFirstWordWithAReturnCode;
 
 BagOfWords bag;
+BagOfWords bag2;
 
 size_t strlen_(const char *begin);
 
@@ -75,4 +76,6 @@ int getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
 int areWordsEqual(WordDescriptor w1, WordDescriptor w2);
 
 void getBagOfWords(BagOfWords *bag, char *s);
+
+void wordDescriptorToString(WordDescriptor word, char *destination);
 #endif
