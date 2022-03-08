@@ -9,9 +9,7 @@
 #include "isLexigraphicallyOrderedString.h"
 #include "printReverseWordsOneByOneToString.h"
 #include "countOfPalindromes.h"
-
-
-
+#include "getStringWithAlternatingWordsOfTwoStrings.h"
 
 void test_tasks(){
     test_removeAdjacentEqualLetters();
@@ -22,6 +20,7 @@ void test_tasks(){
     test_isLexigraphicallyOrderedString();
     test_printReverseWordsOneByOneToString();
     test_countOfPalindromes();
+    test_getStringWithAlternatingWordsOfTwoStrings();
 }
 
 
