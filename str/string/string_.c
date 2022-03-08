@@ -115,6 +115,17 @@ int getWord(char *beginSearch, WordDescriptor *word) {
     return 1;
 }
 
+int getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
+    word->end = findNonSpaceReverse(rbegin, rend) + 1;
+
+    if (word->end == rend)
+        return 0;
+
+    word->begin = findSpaceReverse(word->end - 1, rend) + 1;
+
+    return 1;
+}
+
 int areWordsEqual(WordDescriptor w1, WordDescriptor w2) {
 
     while (w1.begin != w1.end - 1 && (*w1.begin == *w2.begin)) {

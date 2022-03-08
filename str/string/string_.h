@@ -63,6 +63,8 @@ void assertString(const char *expected, char *got,
 
 int getWord(char *beginSearch, WordDescriptor *word);
 
+int getWordReverse(char *rbegin, char *rend, WordDescriptor *word);
+
 int areWordsEqual(WordDescriptor w1, WordDescriptor w2);
 
 void getBagOfWords(BagOfWords *bag, char *s);

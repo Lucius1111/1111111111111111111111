@@ -10,6 +10,7 @@
 #include "printReverseWordsOneByOneToString.h"
 #include "countOfPalindromes.h"
 #include "getStringWithAlternatingWordsOfTwoStrings.h"
+#include "reversesWordOrder.h"
 
 void test_tasks(){
     test_removeAdjacentEqualLetters();
@@ -21,6 +22,7 @@ void test_tasks(){
     test_printReverseWordsOneByOneToString();
     test_countOfPalindromes();
     test_getStringWithAlternatingWordsOfTwoStrings();
+    test_reversesWordOrder();
 }
 
 
