@@ -1,8 +1,8 @@
-//
-// Created by Пользователь on 06.02.2022.
-//
+#ifndef INC_ARRAY_H
+#define INC_ARRAY_H
 
-#ifndef GITPROJECT_ARRAY_H
-#define GITPROJECT_ARRAY_H
+#include <stdio.h>
 
-#endif //GITPROJECT_ARRAY_H
+void outputArray_(const int *source, size_t size);
+
+#endif
